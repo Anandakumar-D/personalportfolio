@@ -107,7 +107,7 @@ const Blog: React.FC = () => {
           {/* Section Header */}
           <div className="text-center mb-6 sm:mb-8">
             <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-slate-900 dark:text-white mb-2 sm:mb-3">
-              Insights & Writing
+              Writings
             </h2>
             <div className="w-12 h-0.5 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full mb-2 sm:mb-3"></div>
             <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
@@ -118,50 +118,77 @@ const Blog: React.FC = () => {
           {/* Blog Posts Grid */}
           <div className="grid lg:grid-cols-2 gap-3 sm:gap-4">
             {blogPosts.map((post) => (
-              <article
-                key={post.id}
-                className="group bg-slate-50 dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 overflow-hidden hover:shadow-lg hover:border-blue-300 dark:hover:border-blue-600 transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer"
-                onClick={() => setSelectedPost(post.id)}
-              >
-                <div className="p-3 sm:p-4">
-                  <div className="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 mb-2">
-                    <div className="flex items-center">
-                      <Calendar size={12} className="mr-1" />
-                      {formatDate(post.publishedAt)}
+              post.id === '5' ? (
+                <a
+                  key={post.id}
+                  href="https://medium.com/@Anandakumar_D/embeddings-the-new-language-of-ai-f6ecf1fe7ed5"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group bg-slate-50 dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 overflow-hidden hover:shadow-lg hover:border-blue-300 dark:hover:border-blue-600 transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer block"
+                >
+                  <div className="p-3 sm:p-4">
+                    <h3 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300 leading-tight">
+                      {post.title}
+                    </h3>
+
+                    <p className="text-slate-600 dark:text-slate-400 mb-3 leading-relaxed text-xs sm:text-sm">
+                      {post.description}
+                    </p>
+
+                    {/* Tags */}
+                    <div className="flex flex-wrap gap-1.5 mb-3">
+                      {post.tags.slice(0, 3).map((tag) => (
+                        <span
+                          key={tag}
+                          className="px-1.5 py-0.5 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-xs font-medium rounded-full"
+                        >
+                          {tag}
+                        </span>
+                      ))}
                     </div>
-                    <div className="flex items-center">
-                      <Clock size={12} className="mr-1" />
-                      {post.readTime}
+
+                    <div className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-semibold transition-all duration-300 text-xs">
+                      Read Article →
                     </div>
                   </div>
 
-                  <h3 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300 leading-tight">
-                    {post.title}
-                  </h3>
+                  <div className="h-0.5 bg-gradient-to-r from-blue-500 to-purple-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+                </a>
+              ) : (
+                <article
+                  key={post.id}
+                  className="group bg-slate-50 dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 overflow-hidden hover:shadow-lg hover:border-blue-300 dark:hover:border-blue-600 transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer"
+                  onClick={() => setSelectedPost(post.id)}
+                >
+                  <div className="p-3 sm:p-4">
+                    <h3 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300 leading-tight">
+                      {post.title}
+                    </h3>
 
-                  <p className="text-slate-600 dark:text-slate-400 mb-3 leading-relaxed text-xs sm:text-sm">
-                    {post.description}
-                  </p>
+                    <p className="text-slate-600 dark:text-slate-400 mb-3 leading-relaxed text-xs sm:text-sm">
+                      {post.description}
+                    </p>
 
-                  {/* Tags */}
-                  <div className="flex flex-wrap gap-1.5 mb-3">
-                    {post.tags.slice(0, 3).map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-1.5 py-0.5 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-xs font-medium rounded-full"
-                      >
-                        {tag}
-                      </span>
-                    ))}
+                    {/* Tags */}
+                    <div className="flex flex-wrap gap-1.5 mb-3">
+                      {post.tags.slice(0, 3).map((tag) => (
+                        <span
+                          key={tag}
+                          className="px-1.5 py-0.5 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-xs font-medium rounded-full"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-semibold transition-all duration-300 text-xs">
+                      Read Article →
+                    </div>
                   </div>
 
-                  <div className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-semibold transition-all duration-300 text-xs">
-                    Read Article →
-                  </div>
-                </div>
-
-                <div className="h-0.5 bg-gradient-to-r from-blue-500 to-purple-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
-              </article>
+                  <div className="h-0.5 bg-gradient-to-r from-blue-500 to-purple-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+                </article>
+              )
             ))}
           </div>
         </div>
