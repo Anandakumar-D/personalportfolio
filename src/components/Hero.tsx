@@ -38,22 +38,19 @@ const Hero: React.FC = () => {
             <div className="order-1 lg:order-2 space-y-3 lg:space-y-4 text-center lg:text-left">
               <div className="space-y-2 lg:space-y-3">
                 <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold tracking-tight">
-                  <span className="text-slate-900 dark:text-white">Principal</span>
+                  <span className="text-slate-900 dark:text-white">Anandakumar</span>
                   <br />
                   <span className="text-blue-600 dark:text-blue-400">AI Scientist</span>
                 </h1>
                 
                 <div className="space-y-2 lg:space-y-3">
                   <p className="text-sm sm:text-base lg:text-lg text-slate-600 dark:text-slate-300 leading-relaxed font-light">
-                    Advancing artificial intelligence in medical imaging through deep learning and vision-language systems
+                  AI Scientist specializing in medical imaging, leading deep learning and vision-language model development for X-rays, CTs, and MRIs.
+                  I focus on translating research into clinically reliable AI systems, with published work in diagnostic automation and real-world deployment.
                   </p>
                   
                   <div className="w-12 h-0.5 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full mx-auto lg:mx-0"></div>
-                  
-                  <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 leading-relaxed max-w-xl mx-auto lg:mx-0">
-                    Specializing in radiological scan interpretation across X-rays, CTs, and MRIs for classification, 
-                    segmentation, and autonomous reporting applications in clinical environments.
-                  </p>
+                
                 </div>
               </div>
 
@@ -65,14 +62,6 @@ const Hero: React.FC = () => {
                 >
                   Get In Touch
                   <ArrowRight size={14} className="ml-2 group-hover:translate-x-0.5 transition-transform duration-300" />
-                </a>
-                
-                <a
-                  href="#"
-                  className="group inline-flex items-center justify-center px-4 sm:px-5 py-2 sm:py-2.5 border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 hover:border-blue-600 dark:hover:border-blue-400 hover:text-blue-600 dark:hover:text-blue-400 font-medium rounded-lg transition-all duration-300 transform hover:-translate-y-0.5 text-xs"
-                >
-                  <Download size={14} className="mr-2" />
-                  Download CV
                 </a>
               </div>
             </div>
