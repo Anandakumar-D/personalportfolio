@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { User, FileText, PenTool, Mail, ChevronRight } from 'lucide-react';
+import { Home, User, FileText, PenTool, Mail } from 'lucide-react';
 
 interface SideNavigationProps {
   variant: 'left-fixed' | 'right-fixed' | 'left-floating' | 'right-floating';
@@ -9,7 +9,7 @@ const SideNavigation: React.FC<SideNavigationProps> = ({ variant }) => {
   const [activeSection, setActiveSection] = useState('hero');
 
   const sections = [
-    { id: 'hero', label: 'Home', icon: User },
+    { id: 'hero', label: 'Home', icon: Home },
     { id: 'about', label: 'About', icon: User },
     { id: 'publications', label: 'Research', icon: FileText },
     { id: 'blog', label: 'Writings', icon: PenTool },

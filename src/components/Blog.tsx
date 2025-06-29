@@ -1,8 +1,10 @@
-import React from 'react';
-import { ExternalLink, Calendar, ArrowRight, PenTool } from 'lucide-react';
+import React, { useState } from 'react';
+import { Calendar, ArrowLeft, Clock, Tag } from 'lucide-react';
 import { blogPosts } from '../data/blog';
 
 const Blog: React.FC = () => {
+  const [selectedPost, setSelectedPost] = useState<string | null>(null);
+
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString('en-US', {
       year: 'numeric',
@@ -10,6 +12,93 @@ const Blog: React.FC = () => {
       day: 'numeric'
     });
   };
+
+  const selectedPostData = selectedPost ? blogPosts.find(post => post.id === selectedPost) : null;
+
+  if (selectedPostData) {
+    return (
+      <section id="blog" className="py-10 sm:py-12 lg:py-16 bg-white dark:bg-slate-900 pb-12 lg:pb-16">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            {/* Back Button */}
+            <button
+              onClick={() => setSelectedPost(null)}
+              className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-medium mb-4 text-sm transition-colors duration-300"
+            >
+              <ArrowLeft size={16} className="mr-2" />
+              Back to Articles
+            </button>
+
+            {/* Article Header */}
+            <article className="prose prose-slate dark:prose-invert max-w-none">
+              <div className="mb-6">
+                <div className="flex flex-wrap items-center gap-4 text-xs text-slate-500 dark:text-slate-400 mb-3">
+                  <div className="flex items-center">
+                    <Calendar size={14} className="mr-1" />
+                    {formatDate(selectedPostData.publishedAt)}
+                  </div>
+                  <div className="flex items-center">
+                    <Clock size={14} className="mr-1" />
+                    {selectedPostData.readTime}
+                  </div>
+                </div>
+
+                <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 dark:text-white mb-3 leading-tight">
+                  {selectedPostData.title}
+                </h1>
+
+                <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 mb-4">
+                  {selectedPostData.description}
+                </p>
+
+                {/* Tags */}
+                <div className="flex flex-wrap items-center gap-2 mb-6">
+                  <Tag size={14} className="text-slate-500 dark:text-slate-400" />
+                  {selectedPostData.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-xs font-medium rounded-full"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Article Content */}
+              <div 
+                className="prose prose-sm sm:prose-base dark:prose-invert max-w-none prose-headings:text-slate-900 dark:prose-headings:text-white prose-p:text-slate-700 dark:prose-p:text-slate-300 prose-strong:text-slate-900 dark:prose-strong:text-white prose-code:text-blue-600 dark:prose-code:text-blue-400 prose-pre:bg-slate-100 dark:prose-pre:bg-slate-800"
+                dangerouslySetInnerHTML={{ 
+                  __html: selectedPostData.content
+                    .split('\n')
+                    .map(line => {
+                      if (line.startsWith('# ')) {
+                        return `<h1>${line.substring(2)}</h1>`;
+                      } else if (line.startsWith('## ')) {
+                        return `<h2>${line.substring(3)}</h2>`;
+                      } else if (line.startsWith('### ')) {
+                        return `<h3>${line.substring(4)}</h3>`;
+                      } else if (line.startsWith('**') && line.endsWith('**')) {
+                        return `<p><strong>${line.substring(2, line.length - 2)}</strong></p>`;
+                      } else if (line.startsWith('- ')) {
+                        return `<li>${line.substring(2)}</li>`;
+                      } else if (line.trim() === '') {
+                        return '<br>';
+                      } else if (line.startsWith('```')) {
+                        return line.includes('```') && line.length > 3 ? '</code></pre>' : '<pre><code>';
+                      } else {
+                        return `<p>${line}</p>`;
+                      }
+                    })
+                    .join('')
+                }}
+              />
+            </article>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section id="blog" className="py-10 sm:py-12 lg:py-16 bg-white dark:bg-slate-900 pb-12 lg:pb-16">
@@ -27,16 +116,23 @@ const Blog: React.FC = () => {
           </div>
 
           {/* Blog Posts Grid */}
-          <div className="grid lg:grid-cols-2 gap-3 sm:gap-4 mb-4 sm:mb-6">
-            {blogPosts.map((post, index) => (
+          <div className="grid lg:grid-cols-2 gap-3 sm:gap-4">
+            {blogPosts.map((post) => (
               <article
                 key={post.id}
-                className="group bg-slate-50 dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 overflow-hidden hover:shadow-lg hover:border-blue-300 dark:hover:border-blue-600 transition-all duration-300 transform hover:-translate-y-0.5"
+                className="group bg-slate-50 dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 overflow-hidden hover:shadow-lg hover:border-blue-300 dark:hover:border-blue-600 transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer"
+                onClick={() => setSelectedPost(post.id)}
               >
                 <div className="p-3 sm:p-4">
-                  <div className="flex items-center text-xs text-slate-500 dark:text-slate-400 mb-2">
-                    <Calendar size={12} className="mr-1" />
-                    {formatDate(post.publishedAt)}
+                  <div className="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 mb-2">
+                    <div className="flex items-center">
+                      <Calendar size={12} className="mr-1" />
+                      {formatDate(post.publishedAt)}
+                    </div>
+                    <div className="flex items-center">
+                      <Clock size={12} className="mr-1" />
+                      {post.readTime}
+                    </div>
                   </div>
 
                   <h3 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300 leading-tight">
@@ -47,38 +143,26 @@ const Blog: React.FC = () => {
                     {post.description}
                   </p>
 
-                  <a
-                    href={post.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group/link inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-semibold transition-all duration-300 text-xs"
-                  >
-                    Read on Medium
-                    <div className="flex items-center ml-1.5 group-hover/link:translate-x-0.5 transition-transform duration-300">
-                      <ArrowRight size={12} className="mr-0.5" />
-                      <ExternalLink size={10} />
-                    </div>
-                  </a>
+                  {/* Tags */}
+                  <div className="flex flex-wrap gap-1.5 mb-3">
+                    {post.tags.slice(0, 3).map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-1.5 py-0.5 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-xs font-medium rounded-full"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-semibold transition-all duration-300 text-xs">
+                    Read Article →
+                  </div>
                 </div>
 
                 <div className="h-0.5 bg-gradient-to-r from-blue-500 to-purple-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
               </article>
             ))}
-          </div>
-
-          {/* View All Posts CTA */}
-          <div className="text-center">
-            <a
-              href="https://medium.com/@anandkumar"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex items-center px-4 sm:px-5 py-2 sm:py-2.5 bg-slate-900 dark:bg-white text-white dark:text-slate-900 hover:bg-slate-800 dark:hover:bg-slate-100 font-semibold rounded-lg transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg hover:shadow-xl text-xs"
-            >
-              <PenTool size={14} className="mr-2" />
-              View All Articles
-              <ArrowRight size={14} className="ml-2 group-hover:translate-x-0.5 transition-transform duration-300" />
-              <ExternalLink size={12} className="ml-1" />
-            </a>
           </div>
         </div>
       </div>
