@@ -22,9 +22,9 @@ const Header: React.FC = () => {
         : 'bg-transparent'
     }`}>
       <nav className="container mx-auto px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-14">
           <div className="flex items-center">
-            <div className="text-lg font-bold tracking-tight">
+            <div className="text-base font-bold tracking-tight">
               <span className="text-slate-900 dark:text-white">Anand</span>
               <span className="text-blue-600 dark:text-blue-400 ml-2 font-light">| AI Scientist</span>
             </div>
@@ -34,10 +34,10 @@ const Header: React.FC = () => {
           <div className="hidden lg:flex items-center">
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all duration-300"
+              className="p-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all duration-300"
               aria-label="Toggle theme"
             >
-              {theme === 'light' ? <Moon size={16} /> : <Sun size={16} />}
+              {theme === 'light' ? <Moon size={14} /> : <Sun size={14} />}
             </button>
           </div>
 
@@ -45,10 +45,10 @@ const Header: React.FC = () => {
           <div className="lg:hidden flex items-center">
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 mr-4"
+              className="p-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 mr-3"
               aria-label="Toggle theme"
             >
-              {theme === 'light' ? <Moon size={16} /> : <Sun size={16} />}
+              {theme === 'light' ? <Moon size={14} /> : <Sun size={14} />}
             </button>
           </div>
         </div>
