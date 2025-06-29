@@ -299,7 +299,7 @@ Standard NLP metrics aren't sufficient for medical applications. We use:
 ### Continuous Monitoring
 Medical prompt performance must be continuously monitored:
 
-```python
+``\`python
 # Example monitoring framework
 def evaluate_clinical_prompt(prompt, test_cases):
     results = {
