@@ -92,9 +92,9 @@ Most hospitals operate on a complex web of legacy systems that weren't designed 
 ### Solution Architecture
 We developed a modular deployment architecture that can adapt to different hospital environments:
 
-```
-Hospital PACS → AI Gateway → Processing Cluster → Results Integration
-```
+\`\`\`
+Hospital PACS -> AI Gateway -> Processing Cluster -> Results Integration
+\`\`\`
 
 The AI Gateway serves as a translation layer, normalizing inputs and outputs while maintaining security and audit trails.
 
@@ -203,65 +203,65 @@ Medical prompts must balance two competing demands:
 ### 1. Explicit Clinical Context
 Always provide clear clinical context in your prompts:
 
-```
+\`\`\`
 Poor: "Analyze this chest X-ray"
 Better: "As a radiologist, analyze this chest X-ray for a 65-year-old patient with chronic cough and smoking history. Focus on signs of malignancy, infection, and chronic lung disease."
-```
+\`\`\`
 
 ### 2. Structured Output Requirements
 Medical applications benefit from structured, standardized outputs:
 
-```
+\`\`\`
 Prompt: "Provide your analysis in the following format:
 - CLINICAL HISTORY: [Brief summary]
 - FINDINGS: [Detailed observations]
 - IMPRESSION: [Clinical interpretation]
 - RECOMMENDATIONS: [Next steps if any]"
-```
+\`\`\`
 
 ### 3. Uncertainty Acknowledgment
 Medical AI must be comfortable expressing uncertainty:
 
-```
+\`\`\`
 "If you are uncertain about any finding, explicitly state your level of confidence and suggest appropriate follow-up or specialist consultation."
-```
+\`\`\`
 
 ## Advanced Techniques
 
 ### Chain-of-Thought for Medical Reasoning
 Breaking down medical reasoning into explicit steps improves accuracy and interpretability:
 
-```
+\`\`\`
 "Analyze this case step by step:
 1. First, identify all visible anatomical structures
 2. Note any abnormalities or variations from normal
 3. Consider the clinical context and patient history
 4. Formulate differential diagnoses
 5. Provide your final assessment with confidence levels"
-```
+\`\`\`
 
 ### Few-Shot Learning with Medical Examples
 Providing relevant medical examples in prompts significantly improves performance:
 
-```
+\`\`\`
 "Here are examples of how to report similar findings:
 
 Example 1: [Normal case with proper reporting format]
 Example 2: [Abnormal case with appropriate language]
 
 Now analyze this case following the same format and style:"
-```
+\`\`\`
 
 ### Constraint-Based Prompting
 Setting explicit constraints helps maintain clinical appropriateness:
 
-```
+\`\`\`
 "Constraints:
 - Use only established medical terminology
 - Avoid definitive diagnoses without sufficient evidence
 - Include differential diagnoses when appropriate
 - Suggest follow-up only when clinically indicated"
-```
+\`\`\`
 
 ## Domain-Specific Considerations
 
@@ -299,7 +299,7 @@ Standard NLP metrics aren't sufficient for medical applications. We use:
 ### Continuous Monitoring
 Medical prompt performance must be continuously monitored:
 
-``\`python
+\`\`\`python
 # Example monitoring framework
 def evaluate_clinical_prompt(prompt, test_cases):
     results = {
@@ -309,7 +309,7 @@ def evaluate_clinical_prompt(prompt, test_cases):
         'consistency': measure_output_consistency(prompt, test_cases)
     }
     return results
-```
+\`\`\`
 
 ## Best Practices and Guidelines
 
