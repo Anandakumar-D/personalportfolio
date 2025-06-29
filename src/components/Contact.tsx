@@ -52,14 +52,12 @@ const Contact: React.FC = () => {
     {
       icon: Linkedin,
       title: 'LinkedIn',
-      description: 'Professional networking',
       href: 'https://linkedin.com/in/anandkumar',
       primary: false
     },
     {
       icon: Twitter,
       title: 'Twitter',
-      description: 'Latest updates & thoughts',
       href: 'https://twitter.com/anandkumar',
       primary: false
     }
@@ -76,7 +74,7 @@ const Contact: React.FC = () => {
             </h2>
             <div className="w-12 h-0.5 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full mb-2 sm:mb-3"></div>
             <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-              Open to research collaborations, speaking opportunities, and applied AI projects in healthcare
+              Open to research collaborations, speaking opportunities, and applied AI projects
             </p>
           </div>
 
@@ -88,7 +86,7 @@ const Contact: React.FC = () => {
                   Get In Touch
                 </h3>
                 <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-3 sm:mb-4 text-xs sm:text-sm">
-                  Whether you're interested in discussing the latest developments in medical AI, exploring potential 
+                  Whether you're interested in discussing the latest developments in AI, exploring potential 
                   research collaborations, or seeking expertise for healthcare AI projects, I'd love to hear from you.
                 </p>
               </div>
