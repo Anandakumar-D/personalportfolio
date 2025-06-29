@@ -23,23 +23,11 @@ const About: React.FC = () => {
             <div className="order-2 lg:order-1">
               <div className="space-y-2.5 sm:space-y-3 text-xs sm:text-sm leading-relaxed">
                 <p className="text-slate-700 dark:text-slate-300">
-                  My career began as a <strong className="text-slate-900 dark:text-white">Data Engineer</strong>, 
-                  where I developed a deep understanding of healthcare data complexities and infrastructure challenges. 
-                  This foundation proved invaluable as I transitioned into <strong className="text-slate-900 dark:text-white">Product roles</strong>, 
-                  gaining critical insights into user needs and real-world deployment requirements.
-                </p>
-                
-                <p className="text-slate-700 dark:text-slate-300">
-                  Today, as a <strong className="text-slate-900 dark:text-white">Principal AI Scientist</strong>, 
-                  I focus on developing robust AI systems that can reliably interpret medical images in clinical settings. 
-                  My work spans the entire pipeline from research to deployment, with particular emphasis on clinical bias 
-                  mitigation and the practical challenges of scaling AI in healthcare environments.
-                </p>
+                  My journey began as a <strong>Data Engineer</strong>, where I worked on healthcare infrastructure and data platforms at scale. I later transitioned into <strong>Product roles</strong>, leading AI-first deployments for radiology reporting workflows across real hospitals.<br /><br />
 
-                <p className="text-slate-700 dark:text-slate-300">
-                  I'm passionate about <strong className="text-slate-900 dark:text-white">vision-language models</strong> 
-                  for automated report generation, advanced evaluation frameworks for medical AI, and bridging the gap 
-                  between cutting-edge research and meaningful clinical impact.
+                  Today, as a <strong>Principal AI Scientist</strong>, I focus on developing clinically reliable AI systems for medical imaging — across X-rays, CTs, and MRIs. My work spans classification, segmentation, and vision-language models for autonomous reporting.<br /><br />
+
+                  My recent work includes applied research on medical imaging AI, with a few papers published on arXiv, and I occasionally share what I learn through talks and writing.
                 </p>
               </div>
             </div>
