@@ -13,9 +13,6 @@ const Publications: React.FC = () => {
               Research Publications
             </h2>
             <div className="w-12 h-0.5 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full mb-2 sm:mb-3"></div>
-            <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-              Peer-reviewed research contributions advancing the field of AI in medical imaging
-            </p>
           </div>
 
           {/* Publications Grid */}
