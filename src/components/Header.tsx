@@ -25,7 +25,7 @@ const Header: React.FC = () => {
         <div className="flex items-center justify-between h-14">
           <div className="flex items-center">
             <div className="text-base font-bold tracking-tight">
-              <span className="text-slate-900 dark:text-white">Anand</span>
+              <span className="text-slate-900 dark:text-white">Anandakumar</span>
               <span className="text-blue-600 dark:text-blue-400 ml-2 font-light">| AI Scientist</span>
             </div>
           </div>
