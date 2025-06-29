@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowRight, Download } from 'lucide-react';
+import image from '../assets/image.png';
 
 const Hero: React.FC = () => {
   return (
@@ -20,9 +21,10 @@ const Hero: React.FC = () => {
               <div className="relative">
                 <div className="w-40 h-40 sm:w-48 sm:h-48 lg:w-56 lg:h-56 rounded-2xl overflow-hidden shadow-lg">
                   <img 
-                    src="https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=800" 
-                    alt="Anand - Principal AI Scientist"
-                    className="w-full h-full object-cover"
+                    src={image} 
+                    alt="Your Photo"
+                    className="w-full h-full object-cover object-top md:object-center"
+                    style={{objectPosition: 'center 0%'}}
                   />
                 </div>
                 {/* Decorative elements */}
