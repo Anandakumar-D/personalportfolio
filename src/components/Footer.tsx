@@ -1,5 +1,5 @@
 import React from 'react';
-import { Github, BookOpen, Linkedin, Mail } from 'lucide-react';
+import { Github, BookOpen, Linkedin, Mail, Twitter } from 'lucide-react';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -12,18 +12,18 @@ const Footer: React.FC = () => {
     },
     {
       icon: Linkedin,
-      href: 'https://linkedin.com/in/anandkumar',
+      href: 'https://www.linkedin.com/in/anandakumar-d/',
       label: 'LinkedIn'
     },
     {
-      icon: Github,
-      href: 'https://github.com/anandkumar',
-      label: 'GitHub'
+      icon: Twitter,
+      href: 'https://x.com/Anandakumar_D25',
+      label: 'Twitter'
     },
     {
-      icon: BookOpen,
-      href: 'https://scholar.google.com/citations?user=anandkumar',
-      label: 'Google Scholar'
+      icon: Github,
+      href: 'https://github.com/Anandakumar-D/',
+      label: 'GitHub'
     }
   ];
 
@@ -36,7 +36,7 @@ const Footer: React.FC = () => {
             <div className="md:col-span-2">
               <div className="mb-3">
                 <h3 className="text-base font-bold mb-1">
-                  Anand <span className="text-blue-400">| AI Scientist</span>
+                  Anandakumar <span className="text-blue-400">| AI Scientist</span>
                 </h3>
                 <p className="text-slate-400 leading-relaxed max-w-md text-xs">
                   Principal AI Scientist specializing in medical imaging, deep learning, 
@@ -63,30 +63,13 @@ const Footer: React.FC = () => {
                 })}
               </div>
             </div>
-
-            {/* Research Areas */}
-            <div className="md:col-span-2">
-              <h4 className="text-sm font-semibold mb-2">Research Focus</h4>
-              <div className="grid grid-cols-2 gap-0.5 text-slate-400 text-xs">
-                <div>Deep Learning</div>
-                <div>Medical Imaging</div>
-                <div>Vision-Language Models</div>
-                <div>Clinical AI</div>
-                <div>Bias Mitigation</div>
-                <div>Model Evaluation</div>
-              </div>
-            </div>
           </div>
 
           {/* Bottom Bar */}
           <div className="border-t border-slate-800 pt-4">
             <div className="flex flex-col md:flex-row justify-between items-center">
               <div className="text-slate-400 mb-2 md:mb-0 text-xs">
-                © {currentYear} Anand. All rights reserved.
-              </div>
-              
-              <div className="text-slate-400 text-xs">
-                Advancing AI in healthcare through research and innovation
+                © {currentYear} Anandakumar. All rights reserved.
               </div>
             </div>
           </div>
