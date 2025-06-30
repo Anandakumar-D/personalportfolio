@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ExternalLink, Tag, BookOpen } from 'lucide-react';
 import { publications } from '../data/publications';
 
 const Publications: React.FC = () => {
+  const [visibleCount, setVisibleCount] = useState(4);
+
+  const handleViewMore = () => {
+    setVisibleCount((prev) => prev + 4);
+  };
+
   return (
     <section id="publications" className="py-10 sm:py-12 lg:py-16 bg-slate-50 dark:bg-slate-800 pb-12 lg:pb-16">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -17,7 +23,7 @@ const Publications: React.FC = () => {
 
           {/* Publications Grid */}
           <div className="space-y-3 sm:space-y-4">
-            {publications.map((pub, index) => (
+            {publications.slice(0, visibleCount).map((pub, index) => (
               <article
                 key={pub.id}
                 className="group bg-white dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-700 p-3 sm:p-4 hover:shadow-lg hover:border-blue-300 dark:hover:border-blue-600 transition-all duration-300"
@@ -80,6 +86,16 @@ const Publications: React.FC = () => {
                 </div>
               </article>
             ))}
+            {visibleCount < publications.length && (
+              <div className="flex justify-center mt-4">
+                <button
+                  onClick={handleViewMore}
+                  className="px-5 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl text-sm"
+                >
+                  View More
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </div>

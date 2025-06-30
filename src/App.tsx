@@ -7,7 +7,6 @@ import Publications from './components/Publications';
 import Blog from './components/Blog';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import SideNavigation from './components/SideNavigation';
 import MobileNavigation from './components/MobileNavigation';
 
 function App() {
@@ -17,7 +16,6 @@ function App() {
     <ThemeProvider>
       <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
         <Header />
-        <SideNavigation variant={navVariant} />
         <MobileNavigation />
         <main>
           <Hero />

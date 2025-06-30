@@ -4,7 +4,7 @@ import image from '../assets/image.png';
 
 const Hero: React.FC = () => {
   return (
-    <section id="hero" className="relative min-h-screen flex items-center bg-gradient-to-br from-slate-50 via-white to-blue-50/30 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 pb-12 lg:pb-0">
+    <section id="hero" className="relative flex items-center bg-gradient-to-br from-slate-50 via-white to-blue-50/30 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 py-8 mt-16">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-40 dark:opacity-20">
         <div className="absolute inset-0" style={{
@@ -15,7 +15,7 @@ const Hero: React.FC = () => {
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-5xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-4 lg:gap-8 items-center">
+          <div className="grid lg:grid-cols-2 gap-2 lg:gap-4 items-center">
             {/* Profile Photo */}
             <div className="order-2 lg:order-1 flex justify-center lg:justify-start">
               <div className="relative">
@@ -35,15 +35,15 @@ const Hero: React.FC = () => {
             </div>
 
             {/* Content */}
-            <div className="order-1 lg:order-2 space-y-3 lg:space-y-4 text-center lg:text-left">
-              <div className="space-y-2 lg:space-y-3">
+            <div className="order-1 lg:order-2 space-y-2 lg:space-y-2 text-center lg:text-left">
+              <div className="space-y-1 lg:space-y-1">
                 <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold tracking-tight">
                   <span className="text-slate-900 dark:text-white">Anandakumar</span>
                   <br />
                   <span className="text-blue-600 dark:text-blue-400">AI Scientist</span>
                 </h1>
                 
-                <div className="space-y-2 lg:space-y-3">
+                <div className="space-y-1 lg:space-y-1">
                   <p className="text-sm sm:text-base lg:text-lg text-slate-600 dark:text-slate-300 leading-relaxed font-light">
                   AI Scientist specializing in medical imaging, leading deep learning and vision-language model development for X-rays, CTs, and MRIs.
                   I focus on translating research into clinically reliable AI systems, with published work in diagnostic automation and real-world deployment.
@@ -55,7 +55,7 @@ const Hero: React.FC = () => {
               </div>
 
               {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-2.5 justify-center lg:justify-start">
+              <div className="flex flex-col sm:flex-row gap-2 justify-center lg:justify-start mt-2">
                 <a
                   href="mailto:anandkumar57007@gmail.com"
                   className="group inline-flex items-center justify-center px-4 sm:px-5 py-2 sm:py-2.5 bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white font-medium rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 text-xs"
