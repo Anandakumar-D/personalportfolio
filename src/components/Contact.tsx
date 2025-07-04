@@ -50,15 +50,23 @@ const Contact: React.FC = () => {
       primary: true
     },
     {
-      icon: Linkedin,
+      icon: (props: any) => (
+        <svg {...props} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.28c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm15.5 11.28h-3v-5.6c0-1.34-.03-3.07-1.87-3.07-1.87 0-2.16 1.46-2.16 2.97v5.7h-3v-10h2.89v1.36h.04c.4-.75 1.38-1.54 2.84-1.54 3.04 0 3.6 2 3.6 4.59v5.59z"/>
+        </svg>
+      ),
       title: 'LinkedIn',
-      href: 'https://linkedin.com/in/anandkumar',
+      href: 'https://www.linkedin.com/in/anandakumar-d/',
       primary: false
     },
     {
-      icon: Twitter,
+      icon: (props: any) => (
+        <svg {...props} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M24 4.557a9.93 9.93 0 0 1-2.828.775 4.932 4.932 0 0 0 2.165-2.724c-.951.564-2.005.974-3.127 1.195a4.92 4.92 0 0 0-8.384 4.482c-4.086-.205-7.713-2.164-10.141-5.144a4.822 4.822 0 0 0-.664 2.475c0 1.708.87 3.216 2.188 4.099a4.904 4.904 0 0 1-2.229-.616c-.054 2.281 1.581 4.415 3.949 4.89a4.936 4.936 0 0 1-2.224.084c.627 1.956 2.444 3.377 4.6 3.417a9.867 9.867 0 0 1-6.102 2.104c-.396 0-.787-.023-1.175-.069a13.945 13.945 0 0 0 7.548 2.212c9.057 0 14.009-7.514 14.009-14.009 0-.213-.005-.425-.014-.636a10.012 10.012 0 0 0 2.457-2.548z"/>
+        </svg>
+      ),
       title: 'Twitter',
-      href: 'https://twitter.com/anandkumar',
+      href: 'https://x.com/Anandakumar_D25',
       primary: false
     }
   ];
@@ -78,147 +86,74 @@ const Contact: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-5 gap-4 lg:gap-6">
-            {/* Contact Information */}
-            <div className="lg:col-span-2 space-y-3 sm:space-y-4">
-              <div>
-                <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white mb-2 sm:mb-3">
-                  Get In Touch
-                </h3>
-                <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-3 sm:mb-4 text-xs sm:text-sm">
-                  Whether you're interested in discussing the latest developments in AI, exploring potential 
-                  research collaborations, or seeking expertise for healthcare AI projects, I'd love to hear from you.
-                </p>
-              </div>
-
-              {/* Contact Methods */}
-              <div className="space-y-2">
-                {contactMethods.map((method) => {
-                  const IconComponent = method.icon;
-                  return (
-                    <a
-                      key={method.title}
-                      href={method.href}
-                      target={method.href.startsWith('http') ? '_blank' : undefined}
-                      rel={method.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                      className={`group flex items-center p-2.5 sm:p-3 rounded-lg transition-all duration-300 ${
-                        method.primary
-                          ? 'bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 hover:border-blue-300 dark:hover:border-blue-600'
-                          : 'bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600'
-                      } hover:shadow-md transform hover:-translate-y-0.5`}
-                    >
-                      <div className={`flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-lg mr-2.5 group-hover:scale-110 transition-transform duration-300 ${
-                        method.primary
-                          ? 'bg-blue-100 dark:bg-blue-800 text-blue-600 dark:text-blue-400'
-                          : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400'
-                      }`}>
-                        <IconComponent size={14} className="sm:w-4 sm:h-4" />
-                      </div>
-                      <div>
-                        <div className="font-semibold text-slate-900 dark:text-white text-xs sm:text-sm">
-                          {method.title}
-                        </div>
-                        <div className="text-slate-600 dark:text-slate-400 text-xs">
-                          {method.description}
-                        </div>
-                      </div>
-                    </a>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* Contact Form */}
-            <div className="lg:col-span-3">
-              <div className="bg-white dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-700 p-3 sm:p-4 shadow-lg">
-                <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white mb-3">
-                  Send a Message
-                </h3>
-
-                {status.type === 'success' && (
-                  <div className="mb-3 p-2.5 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg flex items-center">
-                    <CheckCircle size={14} className="text-green-600 dark:text-green-400 mr-2 flex-shrink-0" />
-                    <span className="text-green-800 dark:text-green-200 text-xs">{status.message}</span>
-                  </div>
-                )}
-
-                {status.type === 'error' && (
-                  <div className="mb-3 p-2.5 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg flex items-center">
-                    <AlertCircle size={14} className="text-red-600 dark:text-red-400 mr-2 flex-shrink-0" />
-                    <span className="text-red-800 dark:text-red-200 text-xs">{status.message}</span>
-                  </div>
-                )}
-
-                <form onSubmit={handleSubmit} className="space-y-3">
-                  <div className="grid sm:grid-cols-2 gap-3">
-                    <div>
-                      <label htmlFor="name" className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
-                        Full Name *
-                      </label>
-                      <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full px-2.5 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all duration-200 text-slate-900 dark:text-white text-xs"
-                        placeholder="Your full name"
-                      />
-                    </div>
-
-                    <div>
-                      <label htmlFor="email" className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
-                        Email Address *
-                      </label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        required
-                        className="w-full px-2.5 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all duration-200 text-slate-900 dark:text-white text-xs"
-                        placeholder="your.email@example.com"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label htmlFor="message" className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
-                      Message *
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleInputChange}
-                      required
-                      rows={4}
-                      className="w-full px-2.5 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all duration-200 text-slate-900 dark:text-white resize-none text-xs"
-                      placeholder="Tell me about your project, research interest, or inquiry..."
-                    />
-                  </div>
-
-                  <button
-                    type="submit"
-                    disabled={!isFormValid || status.type === 'loading'}
-                    className="w-full flex items-center justify-center px-3 sm:px-4 py-2 sm:py-2.5 bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white font-semibold rounded-lg transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none text-xs"
+          <div className="flex flex-col items-center w-full mt-8">
+            <div className="flex justify-center gap-6 w-full max-w-2xl">
+              {contactMethods.slice(1, 3).map((method) => {
+                const IconComponent = method.icon;
+                return (
+                  <a
+                    key={method.title}
+                    href={method.href}
+                    target={method.href.startsWith('http') ? '_blank' : undefined}
+                    rel={method.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                    className={`group flex items-center p-4 sm:p-5 rounded-lg transition-all duration-300 ${
+                      method.primary
+                        ? 'bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 hover:border-blue-300 dark:hover:border-blue-600'
+                        : 'bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600'
+                    } hover:shadow-md transform hover:-translate-y-0.5 w-72 sm:w-80 justify-center`}
                   >
-                    {status.type === 'loading' ? (
-                      <>
-                        <div className="animate-spin rounded-full h-3 w-3 border-b-2 border-white mr-2"></div>
-                        Sending Message...
-                      </>
-                    ) : (
-                      <>
-                        <Send size={14} className="mr-2" />
-                        Send Message
-                      </>
-                    )}
-                  </button>
-                </form>
-              </div>
+                    <div className={`flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-lg mr-3 group-hover:scale-110 transition-transform duration-300 ${
+                      method.primary
+                        ? 'bg-blue-100 dark:bg-blue-800 text-blue-600 dark:text-blue-400'
+                        : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400'
+                    }`}>
+                      <IconComponent size={18} className="sm:w-5 sm:h-5" />
+                    </div>
+                    <div>
+                      <div className="font-semibold text-slate-900 dark:text-white text-sm sm:text-base">
+                        {method.title}
+                      </div>
+                      <div className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm">
+                        {method.description}
+                      </div>
+                    </div>
+                  </a>
+                );
+              })}
+            </div>
+            <div className="flex justify-center w-full max-w-2xl mt-6">
+              {contactMethods.slice(0, 1).map((method) => {
+                const IconComponent = method.icon;
+                return (
+                  <a
+                    key={method.title}
+                    href={method.href}
+                    target={method.href.startsWith('http') ? '_blank' : undefined}
+                    rel={method.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                    className={`group flex items-center p-4 sm:p-5 rounded-lg transition-all duration-300 ${
+                      method.primary
+                        ? 'bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 hover:border-blue-300 dark:hover:border-blue-600'
+                        : 'bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600'
+                    } hover:shadow-md transform hover:-translate-y-0.5 w-72 sm:w-80 justify-center`}
+                  >
+                    <div className={`flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-lg mr-3 group-hover:scale-110 transition-transform duration-300 ${
+                      method.primary
+                        ? 'bg-blue-100 dark:bg-blue-800 text-blue-600 dark:text-blue-400'
+                        : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400'
+                    }`}>
+                      <IconComponent size={18} className="sm:w-5 sm:h-5" />
+                    </div>
+                    <div>
+                      <div className="font-semibold text-slate-900 dark:text-white text-sm sm:text-base">
+                        {method.title}
+                      </div>
+                      <div className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm">
+                        {method.description}
+                      </div>
+                    </div>
+                  </a>
+                );
+              })}
             </div>
           </div>
         </div>
