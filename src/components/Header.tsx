@@ -43,16 +43,12 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-      isScrolled 
-        ? 'bg-white/95 dark:bg-slate-900/95 backdrop-blur-lg shadow-lg border-b border-gray-100 dark:border-slate-800' 
-        : 'bg-transparent'
-    }`}>
+    <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-500 dark:bg-slate-900 bg-transparent">
       <nav className="container mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-14">
           <div className="text-base font-bold tracking-tight">
             <span className="text-slate-900 dark:text-white">Anandakumar</span>
-            <span className="text-blue-600 dark:text-blue-400 ml-2 font-light">| AI Scientist</span>
+            {/* <span className="text-blue-600 dark:text-blue-400 ml-2 font-light">| AI Scientist</span> */}
           </div>
           <div className="flex-1" />
           {/* Top Navigation */}

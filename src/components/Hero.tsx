@@ -4,7 +4,7 @@ import image from '../assets/image.png';
 
 const Hero: React.FC = () => {
   return (
-    <section id="hero" className="relative flex items-center bg-gradient-to-br from-slate-50 via-white to-blue-50/30 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 py-8 mt-16">
+    <section id="hero" className="relative flex items-center bg-gradient-to-br from-slate-50 via-white to-blue-50/30 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 py-8 pt-14">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-40 dark:opacity-20">
         <div className="absolute inset-0" style={{
