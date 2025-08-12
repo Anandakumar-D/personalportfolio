@@ -13,6 +13,12 @@ const Blog: React.FC = () => {
     });
   };
 
+  // Extract the first URL inside markdown parentheses (...)
+  const extractFirstUrl = (markdown: string): string | null => {
+    const match = markdown.match(/\((https?:\/\/[^)]+)\)/);
+    return match ? match[1] : null;
+  };
+
   const selectedPostData = selectedPost ? blogPosts.find(post => post.id === selectedPost) : null;
 
   if (selectedPostData) {
@@ -117,16 +123,10 @@ const Blog: React.FC = () => {
 
           {/* Blog Posts Grid */}
           <div className="grid lg:grid-cols-2 gap-3 sm:gap-4">
-            {blogPosts.map((post) => (
+            {blogPosts.slice(0, 4).map((post) => (
               <a
                 key={post.id}
-                href={
-                  post.id === '5'
-                    ? 'https://medium.com/@Anandakumar_D/embeddings-the-new-language-of-ai-f6ecf1fe7ed5'
-                    : post.id === '6'
-                    ? 'https://medium.com/@Anandakumar_D/bridging-the-gap-understanding-the-difference-between-insight-and-information-c183f871b3e7'
-                    : '#'
-                }
+                href={extractFirstUrl(post.content) || '#'}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group bg-slate-50 dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 overflow-hidden hover:shadow-lg hover:border-blue-300 dark:hover:border-blue-600 transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer block"
@@ -160,6 +160,18 @@ const Blog: React.FC = () => {
                 <div className="h-0.5 bg-gradient-to-r from-blue-500 to-purple-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
               </a>
             ))}
+          </div>
+
+          {/* Know more button */}
+          <div className="mt-6 flex justify-center">
+            <a
+              href="https://substack.com/@theanandskernel"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center px-4 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition-colors text-sm font-semibold"
+            >
+              Know more
+            </a>
           </div>
         </div>
       </div>
