@@ -165,7 +165,7 @@ const Blog: React.FC = () => {
           {/* Know more button */}
           <div className="mt-6 flex justify-center">
             <a
-              href="https://substack.com/@theanandskernel"
+              href="https://theanandskernel.substack.com/"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center px-4 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition-colors text-sm font-semibold"
